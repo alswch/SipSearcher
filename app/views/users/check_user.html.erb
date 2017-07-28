@@ -1,0 +1,75 @@
+<!-- ====== views/users/check_user.html.erb ====== -->
+<!-- ====== views/users/check_user.html.erb ====== -->
+
+<p id="notice"><%= notice %></p>
+<div id="detail-wrapper">
+  <div class="profile-name-container">
+    <h1 class="profile-name"><%= @check_user.username %></h1>
+  </div>
+  <div id="detail-container">
+    <div id="left-top-area">
+      <div class="form-div">
+        <p id="item-display">
+          <span class="item-label">First Name:</span> <span class="item"><%= @check_user.fname %></span>
+        </p>
+      </div>
+      <div class="form-div">
+        <p id="item-display">
+          <span class="item-label">Last Name:</span> <span class="item"><%= @check_user.lname %></span>
+        </p>
+      </div>
+      <div class="form-div">
+        <p id="item-display">
+          <span class="item-label">Email:</span> <span class="item"><%= @check_user.email %></span>
+        </p>
+      </div>
+    </div>
+    <div id="right-bottom-area">[photo]
+      <!-- <%#= image_tag(@photo.id.image.url) %> -->
+    </div>
+  </div>
+  <div id="ratings-area">
+    <% @check_user_reports.each do |r| %>
+      <div class="rating">
+        <div class="rating-top">
+          <div class="left-info">
+            <div class="quarter-div">
+              <span class="rating-label">Bar:</span>
+              <%= link_to r.bars.first.name, bar_path(r.bars.first.id), class: "rating-bar-name" %>
+            </div>
+            <div class="quarter-div">
+              <span class="rating-label">Rating:</span> <span class="rating-display"><%= r.rating %></span>
+            </div>
+          </div>
+          <div class="right-info">
+            <div class="report-icon-container">
+              <div class="report-icon-box">
+                <img src="/assets/beer.png" alt="Wine">
+              </div>
+              <div class="report-icon-box">
+                <img src="/assets/wine.png" alt="Wine">
+              </div>
+              <div class="report-icon-box">
+                <img src="/assets/cocktail.png" alt="Wine">
+              </div>
+            </div>
+            <div class="report-rating-container">
+              <div class="report-rating-box">
+                <p class="report-rating">$<%= r.beer_price %></p>
+              </div>
+              <div class="report-rating-box">
+                <p class="report-rating">$<%= r.wine_price %></p>
+              </div>
+              <div class="report-rating-box">
+                <p class="report-rating">$<%= r.cocktails_price %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rating-bottom">
+          <div class="rating-comment-container"><p class="rating-comment"><%= r.comment %></p></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

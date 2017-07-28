@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SipSearcherApp</title>
+    <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= include_gon %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Amaranth|Raleway|Croissant+One|Shrikhand" rel="stylesheet">
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=" + GOOGLE_JS_KEY %>
+  </head>
+  <body>
+    <div id="menu_container">
+        <%= render :partial => "/users/menu" %>
+    </div>
+    <div id="yield-container">
+      <%= yield %>
+    </div>
+    <div id="footer">
+      <% if notice %>
+          <p id="notice"> <%= notice %> </p>
+      <% end %>
+      <% if alert %>
+          <p id ="alert"> <%= alert %> </p>
+      <% end %>
+    </div>
+  </body>
+</html>

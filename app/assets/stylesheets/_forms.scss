@@ -1,0 +1,170 @@
+$shadow: 0 2px 4px rgba(0,0,0,0.3);
+$primary: #e6e6e6;
+$border: 1px solid #e6e6e6;
+$break: 780px;
+$amaranth: 'Amaranth', sans-serif;
+$raleway: 'Raleway', sans-serif;
+$font-color: #002266;
+$button-bg: #002266;
+$button-hover: #66a3ff;
+$button-active: #001133;
+$cancel-btn: #ff3333;
+$cancel-hover: #ff6666;
+$cancel-active: #e60000;
+
+.form-wrapper{
+  box-sizing: border-box;
+  position: relative;
+  width: 360px;
+  margin: auto;
+  box-shadow: $shadow;
+  background-color: $primary;
+  padding: 20px;
+  @media screen and (max-width: $break){
+    top: 20px;
+  }
+  .form-area{
+    box-sizing: border-box;
+    width: 320px;
+    height: auto;
+    border: $border;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: $shadow;
+    .form-div{
+      box-sizing: border-box;
+      width: 290px;
+      margin: 10px auto;
+      text-align: center;
+      .bar-index-text{
+        text-decoration: none;
+        font-family: $amaranth;
+        color: $font-color;
+        box-sizing: border-box;
+        line-height: 50px;
+        font-size: 22px;
+      }
+      .input-group{
+        margin: 30px 0;
+        font-family: $amaranth;
+        color: $font-color;
+        font-size: 18px;
+        .form-label{
+          padding: 5px;
+        }
+        .form-input{
+          height: 30px;
+          outline: none;
+          border: $border;
+          font-size: 18px;
+          padding: 3px;
+          border-radius: 3px;
+        }
+      }
+      .reg-grp{
+        @extend .input-group;
+        margin: 10px 0;
+        .reg-label{
+          @extend .form-label;
+
+        }
+        .reg-input{
+          @extend .form-input;
+
+        }
+      }
+      .checkbox{
+        line-height: 40px;
+      }
+      .checkbox-label{
+        font-family: $raleway;
+        font-size: 16px;
+        line-height: 40px;
+      }
+      .form-btn{
+        display: block;
+        box-sizing: border-box;
+        height: 50px;
+        width: 160px;
+        margin: 15px auto;
+        background-color: $button-bg;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        font-size: 24px;
+        outline: none;
+        text-transform: uppercase;
+        color: white;
+        font-family: $amaranth;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        &:hover{
+          background-color: $button-hover;
+        }
+        &:active{
+          background-color: $button-active;
+          transform: translate(2px, 2px);
+          box-shadow: 0 0 0 rgba(0,0,0,0.3);
+        }
+      }
+      .register-btn{
+        @extend .form-btn;
+      }
+      .cancel-btn{
+        @extend .form-btn;
+        text-decoration: none;
+        line-height: 50px;
+        background-color: $cancel-btn;
+        &:hover{
+          background-color: $cancel-hover;
+        }
+        &:active{
+          background-color: $cancel-active;
+        }
+      }
+      .forgot-pass-btn{
+        @extend .form-btn;
+        background-color: $cancel-btn;
+        width: 240px;
+        &:hover{
+          background-color: $cancel-hover;
+        }
+        &:active{
+          background-color: $cancel-active;
+        }
+      }
+      .register-option{
+        float: left;
+        font-size: 12px;
+        color: $font-color;
+        font-family: $raleway;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+      .forgot-pass-option{
+        float: right;
+        font-size: 12px;
+        color: $font-color;
+        font-family: $raleway;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+    .form-grp-div-lg{
+      height: 100px;
+    }
+    .form-grp-div-md{
+      height: 70px;
+    }
+    .form-grp-div-sm{
+      height: 40px;
+    }
+  }
+  .bar-index{
+    height: 70px;
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,21 @@
+$break: 780px;
+$amaranth: 'Amaranth', sans-serif;
+$font-color: #002266;
+
+body{
+  margin: 0;
+  #yield-container{
+    position: relative;
+    top: 70px;
+    padding: 20px;
+    @media screen and (max-width: $break){
+      top: 110px;
+      padding: 0;
+    }
+    .header{
+      text-align: center;
+      font-family: $amaranth;
+      color: $font-color;
+    }
+  }
+}

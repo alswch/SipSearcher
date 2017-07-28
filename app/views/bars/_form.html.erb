@@ -1,0 +1,110 @@
+<% puts "*++ FORM @which_bar_info.inspect: #{@which_bar_info.inspect} FORM ++*" %>
+<div class="form-wrapper">
+  <%= form_for([@bar]) do |form| %>
+    <% if bar.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(bar.errors.count, "error") %> prohibited this bar from being saved:</h2>
+        <ul>
+          <% bar.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <% selected_neighborhood = nil %>
+    <% neighborhood_names_ids = [] %>
+    <% @neighborhoods.each_with_index do |neighborhood, index| %>
+      <% neighborhood_names_ids << [neighborhood.neighborhood_name, neighborhood.id] %>
+      <% puts "neighborhood.id: #{neighborhood.id} #{index}" %>
+      <% if neighborhood.id == neighborhood.id %>
+    <% end %>
+
+    <% end %>
+    <div class="form-area">
+      <div class="form-div">
+        <div class="input-group">
+          <%= label :neighborhood_id, "Neighborhood", class: "data-label" %>: <%= form.select(:neighborhood_id, options_for_select(neighborhood_names_ids, @neighborhood.id), id: "neighborhood_id", class: "form-input" )%>
+        </div>
+      </div>
+      <div class="form-div">
+        <div class="input-group">
+          <%= label :name, "Name", class: "data-label" %>: <%= form.text_field :name, :value => @which_bar_info[:name], id: "name", class: "form-input" %>
+        </div>
+      </div>
+      <div class="form-div">
+        <div class="input-group">
+          <%= label :address, "Address", class: "data-label" %>: <%= form.text_field :address, :value => @which_bar_info[:address], id: "address", class: "form-input" %>
+        </div>
+      </div>
+      <div class="form-div">
+        <div class="input-group">
+            <%= form.hidden_field :latitude, :value => @which_bar_info[:lat], id: "latitude", class: "data-value" %>
+            <% puts "@which_bar_info[:lat].inspect: #{@which_bar_info[:lat]}" %>
+        </div>
+      </div>
+      <div class="form-div">
+        <div class="input-group">
+            <%= form.hidden_field :longitude, :value => @which_bar_info[:lng], id: "longitude", class: "data-value" %>
+            <% puts "@which_bar_info[:lng].inspect: #{@which_bar_info[:lng]}" %>
+        </div>
+      </div>
+      <div class="form-div">
+        <div class="input-group">
+          <%= label :phone_number, "Phone #", class: "data-label" %>: <%= form.text_field :phone_number, id: "phone_number", class: "form-input" %>
+        </div>
+      </div>
+
+
+      <div class="form-div">
+        <div class="input-group">
+            <%= label :start_day, "Open", class: "data-label" %>: <%=select("bar", :start_day, options_for_select(Date::ABBR_DAYNAMES), id: "day-drop-down")%> - <% label :end_day, "Close", class: "data-label" %> <%=select("report", :end_day, options_for_select(Date::ABBR_DAYNAMES), id: "day-drop-down")%>
+        </div>
+      </div>
+
+      <div class="form-div">
+        <div class="input-group">
+            <%= label :start_hour, "Hours", class: "data-label" %>: <%= time_select("bar", :start_hour, {minute_step:15, ampm:true}) %> - <% label :end_hour, "Hours", class: "data-label" %> <%= time_select("bar", :end_hour, {minute_step:15, ampm:true}) %>
+        </div>
+      </div>
+
+      <!-- <div class="form-div">
+        <div class="input-group">
+          <%#= label :hours, "Hours", class: "data-label" %>: <%#= form.text_field :hours, id: "hours", class: "form-input" %>
+        </div>
+    </div> -->
+      <div class="form-div">
+        <div class="input-group">
+            <%= label :tag_id, "Category", class: "data-label" %>: <%=select_tag :tag_id, options_from_collection_for_select(@tags, :id, :category_name) %>
+        </div>
+      </div>
+
+      <% drink_prices = [[ "$3-5", 4, {class: 'rating-option'} ], [ "$5-7", 6, {class: 'rating-option'} ],[ "$7-9", 8, {class: 'rating-option'} ]] %>
+
+      <div class="form-div">
+        <div class="input-group">
+          <%= label :beer_price, "Beer Price", class: "data-label" %>:
+          <%= select("report", :beer_price, options_for_select(drink_prices), id: "beer-drop-down")%>
+        </div>
+      </div>
+      <div class="form-div">
+        <div class="input-group">
+          <%= label :wine_price, "Wine Price", class: "data-label" %>:
+          <%= select("report", :wine_price, options_for_select(drink_prices), id: "wine-drop-down")%>
+        </div>
+      </div>
+      <div class="form-div">
+        <div class="input-group">
+          <%= label :cocktails_price, "Cocktails Price", class: "data-label" %>:
+          <%= select("report", :cocktails_price, options_for_select(drink_prices), id: "cocktail-drop-down")%>
+        </div>
+      </div>
+
+      <div class="form-div">
+        <div class="input-group">
+        <%= form.submit "Submit", class: "form-btn" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

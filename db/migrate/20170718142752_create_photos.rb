@@ -1,0 +1,14 @@
+class CreatePhotos < ActiveRecord::Migration[5.1]
+  def change
+    create_table :photos do |t|
+      t.references :user, foreign_key: true
+      t.references :bar, foreign_key: true
+      t.string :caption
+      t.string :content_type
+
+      t.timestamps
+    end
+  end
+end
+
+# < ======= user_id, bar_id, caption:string, content_type:string ======= >

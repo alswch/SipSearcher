@@ -1,0 +1,45 @@
+<% puts "++== before  @report.inspect #{@report.inspect} ++==" %>
+<%= form_for([@user, @report]) do |form| %>
+<% puts "++== after @report.inspect #{@report.inspect} ++==" %>
+
+  <div id="rating-form">
+    <div class="rating-form-top">
+      <div class="rating-form-left-info">
+        <div id="new-rating-header">Add a New Report!</div>
+        <div id="rating-form-rating-select">
+          <% rating_score = [ [ "1", 1, {class: 'rating-option'} ], [ "2", 2, {class: 'rating-option'} ], [ "3", 3, {class: 'rating-option'} ], [ "4", 4, {class: 'rating-option'} ], [ "5", 5, {class: 'rating-option'} ] ] %>
+          <%= select("report", :rating, options_for_select(rating_score), id: "rating-drop-down", class: "data-value")%>
+        </div>
+      </div>
+      <div class="rating-form-right-info">
+        <div class="rating-form-icon-container">
+          <div class="rating-form-icon-box">
+            <img src="/assets/beer.png" alt="Wine">
+          </div>
+          <div class="rating-form-icon-box">
+            <img src="/assets/wine.png" alt="Wine">
+          </div>
+          <div class="rating-form-icon-box">
+            <img src="/assets/cocktail.png" alt="Wine">
+          </div>
+        </div>
+        <div class="rating-form-rating-container">
+            <% drink_prices = [[ "$3-5", 4, {class: 'rating-option'} ], [ "$5-7", 6, {class: 'rating-option'} ],[ "$7-9", 8, {class: 'rating-option'} ]] %>
+            <div class="rating-form-rating-box">
+                <%= select("report", :beer_price, options_for_select(drink_prices), id: "beer-drop-down")%>
+            </div>
+            <div class="rating-form-rating-box">
+                <%= select("report", :wine_price, options_for_select(drink_prices), id: "wine-drop-down")%>
+            </div>
+            <div class="rating-form-rating-box">
+                <%= select("report", :cocktails_price, options_for_select(drink_prices), id: "cocktail-drop-down")%>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="rating-form-bottom">
+      <textarea id="comment" class="rating-form-comment-area" name="report[comment]" maxlength="150" rows="8" cols="80" placeholder="What did you think about this happy hour?"></textarea>
+      <%= form.submit "Submit", class: "submit_btn" %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  neighborhood: one
+  photo: one
+  name: MyString
+  address: MyString
+  latitude: 1.5
+  longitude: 1.5
+  phone_number: 1
+  hours: MyString
+  beer_price: 1.5
+  wine_price: 1.5
+  cocktails_price: 1.5
+
+two:
+  neighborhood: two
+  photo: two
+  name: MyString
+  address: MyString
+  latitude: 1.5
+  longitude: 1.5
+  phone_number: 1
+  hours: MyString
+  beer_price: 1.5
+  wine_price: 1.5
+  cocktails_price: 1.5

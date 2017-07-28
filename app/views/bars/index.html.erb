@@ -1,0 +1,15 @@
+<h1 class="header">Bars</h1>
+
+<div class="form-wrapper">
+  <% @bars.each do |bar| %>
+    <div class="form-area bar-index">
+      <div class="form-div">
+      <%= link_to bar.name, bar, class: "bar-index-text"%>
+        <% if current_admin != nil  %>
+          <%= link_to 'Edit', edit_bar_path(bar.id) %>
+          <%= link_to 'Delete', bar, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

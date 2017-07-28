@@ -1,0 +1,29 @@
+<div class="form-wrapper">
+  <div class="form-area">
+    <%= form_tag('/find_bar', method: 'get') do |form| %>
+      <div class="form-div form-grp-div-md">
+        <div class="input-group">
+          <%= label_tag(:bar_name, "Bar Name:", class: "form-label") %><br>
+          <%= text_field_tag(:bar_name, nil, class: "form-input") %>
+        </div>
+      </div>
+      <% puts "==*** @neighborhoods: #{@neighborhoods.inspect} ***" %>
+      <% selected_neighborhood = nil %>
+      <% neighborhood_name_ids = [] %>
+      <% @neighborhoods.each_with_index do |neighborhood, index| %>
+      <% neighborhood_name_ids << [neighborhood.neighborhood_name, neighborhood.neighborhood_name] %>
+      <% puts "neighborhood.neighborhood_name: #{neighborhood.neighborhood_name} #{index}" %>
+      <% end %>
+      <div class="form-div form-grp-div-md">
+        <div class="input-group">
+          <%= label_tag :neighborhood, "Neighborhood", class: "data-label" %>: <br><%= select_tag(:neighborhood, options_for_select(neighborhood_name_ids), id: "neighborhood_name", class: "data-value" )%>
+        </div>
+      </div>
+      <div class="form-div form-grp-div-md">
+        <div class="input-group">
+          <%= submit_tag "Find Bar", class: "cancel-btn" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<h1 class="header">Local Bars</h1>
+
+<%= render 'form', bar: @bar %>
+
+<% if @list_flag %>
+    <div id="map-collection">
+        <% @place_data_array.each do |place| %>
+            <div class="map-box">
+                <div class="map-info">
+                    <span><%= place["name"] %></span>
+                </div>
+            </div>
+        <% end %>
+    </div>
+<% else %>
+    <div id="map-container"></div>
+    <% @place_data_array.each do |place| %>
+        <div class="map-box">
+            <div class="map-info">
+                <p class="place-name"><%= place["name"] %></p>
+                <span><%= place["geometry"]["location"]["lat"] %> | <%= place["geometry"]["location"]["lng"] %></span>
+            </div>
+        </div>
+    <% end %>
+<% end %>
+
+<% if @which_bar_info %>
+    <% puts "@which_bar_info: #{@which_bar_info}" %>
+    <% puts "@which_bar_info[:neighborhood]: #{@which_bar_info[:neighborhood]}" %>
+
+    <%= form_tag("/neighborhood", method: "get") do %>
+        <input id="neighborhood" name="neighborhood" type="hidden" value="<%= @which_bar_info[:neighborhood] %>">
+        <input id="address" name="address" type="hidden" value="<%= @which_bar_info[:address] %>">
+        <input id="lat" name="lat" type="hidden" value="<%= @which_bar_info[:lat] %>">
+        <input id="lng" name="lng" type="hidden" value="<%= @which_bar_info[:lng] %>">
+    <% end %>
+
+<% end %>
