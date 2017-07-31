@@ -2,7 +2,8 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # == key values set as constants (loaded from system)
-     config.secret_key_base     = ENV["SECRET_KEY_BASE"]
+    #  config.SECRET_KEY_BASE     = ENV["SECRET_KEY_BASE"]
+     config.SECRET_KEY_BASE     = Rails.application.secrets.SECRET_KEY_BASE
 
     #  ======= GOOGLE MAPS =======
      GOOGLE_PLACES_KEY          = Rails.application.secrets.GOOGLE_PLACES_KEY

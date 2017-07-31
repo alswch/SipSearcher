@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.secret_key_base     = ENV["SECRET_KEY_BASE"]
+  config.SECRET_KEY_BASE     = ENV["SECRET_KEY_BASE"]
   S3_REGION                  = ENV["S3_REGION"]
   S3_BUCKET                  = ENV["S3_BUCKET"]
   AWS_ACCESS_KEY_ID          = ENV["AWS_ACCESS_KEY_ID"]
