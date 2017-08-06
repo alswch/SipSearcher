@@ -14,6 +14,7 @@ gem 'aws-sdk'
 gem 'httparty'
 gem 'jquery-rails'
 gem 'gon'
+gem 'unicorn'
 
 # Production Environment
 group :production do
@@ -66,6 +67,8 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'unicorn'
+  gem 'pg'
 end
 
 ruby '2.4.1'
