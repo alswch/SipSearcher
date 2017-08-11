@@ -130,19 +130,19 @@ class BarsController < ApplicationController
   end
 
   # GET /make_local_map
-  def make_local_map(neighborhood)
-      puts "\n******* make_local_map *******"
-
-      # == search for bar locations within 500' of target
-      location = get_lat_lon(neighborhood)
-
-      key = GOOGLE_MAPS_KEY
-      remote_url = "https://www.google.com/maps/embed/v1/place"
-      remote_url += "?key=" + key
-      remote_url += "&q=" + location
-      puts "remote_url: #{remote_url.inspect}"
-      return remote_url
-  end
+  # def make_local_map(neighborhood)
+  #     puts "\n******* make_local_map *******"
+  #
+  #     # == search for bar locations within 500' of target
+  #     location = get_lat_lon(neighborhood)
+  #
+  #     key = GOOGLE_MAPS_KEY
+  #     remote_url = "https://www.google.com/maps/embed/v1/place"
+  #     remote_url += "?key=" + key
+  #     remote_url += "&q=" + location
+  #     puts "remote_url: #{remote_url.inspect}"
+  #     return remote_url
+  # end
 
   # ===== Static Bar Profile Map =====
   # GET /create_bar_map

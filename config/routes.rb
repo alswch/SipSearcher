@@ -8,16 +8,18 @@ Rails.application.routes.draw do
   # == Custom routes
   root to: "users#home"
   get "/landing" => "users#landing"
-  get "/admin_landing" => "admins#admin_landing"
   get "/users" => "users#index"
   get "/bars" => "bars#index"
-  get "/admin_reports" => "reports#index"
   get "/neighborhoods" => "neighborhoods#index"
   get "/user_reports/:id" => "users#user_reports"
-  get "/admin" => "admins#home"
-  get "/admin/users/:id" => "admins#admin_user"
   get "/find_bar" => "bars#find_bar"
   get "/check_user/:id" => "users#check_user"
+
+  # == Admin Routes
+  get "/admin" => "admins#home"
+  get "/admin_landing" => "admins#admin_landing"
+  get "/admin/users/:id" => "admins#admin_user"
+  get "/admin_reports" => "reports#index"
 
   # == Google Bars
   get "/local_bars_json" => "bars#local_bars_json"
