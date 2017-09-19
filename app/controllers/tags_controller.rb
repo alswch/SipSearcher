@@ -28,7 +28,7 @@ class TagsController < ApplicationController
   # POST /tags.json
   def create
       puts "\n******** tags_create ********"
-            puts "*** @boat.inspect: #{@boat.inspect} ***"
+            puts "*** @tag.inspect: #{@tag.inspect} ***"
             @tag = Tag.new(tag_params)
             if @tag.save
               redirect_to tags_path

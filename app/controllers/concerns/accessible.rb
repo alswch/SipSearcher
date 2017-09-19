@@ -1,4 +1,3 @@
-# ../controllers/concerns/accessible.rb
 module Accessible
   extend ActiveSupport::Concern
   included do

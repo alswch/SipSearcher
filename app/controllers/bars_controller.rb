@@ -130,19 +130,19 @@ class BarsController < ApplicationController
   end
 
   # GET /make_local_map
-  def make_local_map(neighborhood)
-      puts "\n******* make_local_map *******"
-
-      # == search for food locations within 500' of nycda
-      location = get_lat_lon(neighborhood)
-
-      key = GOOGLE_MAPS_KEY
-      remote_url = "https://www.google.com/maps/embed/v1/place"
-      remote_url += "?key=" + key
-      remote_url += "&q=" + location
-      puts "remote_url: #{remote_url.inspect}"
-      return remote_url
-  end
+  # def make_local_map(neighborhood)
+  #     puts "\n******* make_local_map *******"
+  #
+  #     # == search for bar locations within 500' of target
+  #     location = get_lat_lon(neighborhood)
+  #
+  #     key = GOOGLE_MAPS_KEY
+  #     remote_url = "https://www.google.com/maps/embed/v1/place"
+  #     remote_url += "?key=" + key
+  #     remote_url += "&q=" + location
+  #     puts "remote_url: #{remote_url.inspect}"
+  #     return remote_url
+  # end
 
   # ===== Static Bar Profile Map =====
   # GET /create_bar_map
@@ -176,8 +176,8 @@ class BarsController < ApplicationController
     rating_accumulator = 0
     @reports.each do |report|
         beer_accumulator += report.beer_price
-        wine_accumulator += report.beer_price
-        cocktails_accumulator += report.beer_price
+        wine_accumulator += report.wine_price
+        cocktails_accumulator += report.cocktails_price
         rating_accumulator += report.rating
     end
     if @reports.length > 0
